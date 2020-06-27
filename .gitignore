@@ -1,3 +1,9 @@
+.settings
+.project
+.cproject
 .DS_Store
 *.operator_overloading.xcodeproj
 .vscode
+main.out
+cmake-build-debug
+.idea
