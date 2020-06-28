@@ -35,6 +35,6 @@ int main() {
   int *new_array = create_array(size, initial_value);
   display(new_array, size);
 
-  delete [] new_array; //deallocate on heap.
+  delete[] new_array; // deallocate on heap.
   return 0;
 }

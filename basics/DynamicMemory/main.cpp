@@ -12,20 +12,17 @@ void passing_pointers_3();
 void passing_references();
 void display(const vector<string> *persons);
 void displayScores(int sentinel, int *scores_ptr);
-
+void displayScores2(int sentinel, int *scores_ptr);
 void display(const vector<string> &persons);
 void display(const vector<int> &scores);
 
 int main() {
-
-  //    memory_allocation();
-  //    arrays_and_pointers();
-//  pointer_arithmetic();
-  //    passing_pointers_2();
-      passing_pointers_3();
-
+  memory_allocation();
+  arrays_and_pointers();
+  pointer_arithmetic();
+  passing_pointers_2();
+  passing_pointers_3();
   passing_references();
-
   return 0;
 }
 
@@ -73,10 +70,8 @@ void arrays_and_pointers() {
   cout << balance_ptr[4] << endl;
 
   // offset notation
-  // using balance_ptr, prints the value of the 1st element in the array
+  // increment the pointer by the given number of byte units and dereference.
   cout << *balance_ptr << endl;
-
-  // increment the pointer by the given number of bytes and dereference.
   cout << *(balance_ptr + 1) << endl;
   cout << *(balance_ptr + 2) << endl;
   cout << *(balance_ptr + 3) << endl;
@@ -94,13 +89,22 @@ void pointer_arithmetic() {
   int sentinel = -1;
   int *scores_ptr{scores};
   displayScores(sentinel, scores_ptr);
+  displayScores2(sentinel, scores_ptr);
 }
 
 void displayScores(int sentinel, int *scores_ptr) {
   while (*scores_ptr != sentinel) {
-    cout << *scores_ptr << endl;
+    cout << *scores_ptr << " ";
     scores_ptr++;
   }
+  cout << endl;
+}
+
+void displayScores2(int sentinel, int *scores_ptr) {
+  while (*scores_ptr != sentinel) {
+    cout << *scores_ptr++ << " ";
+  }
+  cout << endl;
 }
 
 void passing_pointers_2() {
@@ -124,16 +128,15 @@ void passing_pointers_3() {
 }
 
 void display(const vector<string> *persons) {
-  for (const auto& person : *persons) {
-    cout << person << endl;
+  for (const auto &person : *persons) {
+    cout << person << " ";
   }
+  cout << endl;
 }
-
-
 
 void passing_references() {
   vector<string> persons{"Larry", "Susan", "Justin", "Zoe"};
-  vector<int> scores {1,5,90,87,7,89,11};
+  vector<int> scores{1, 5, 90, 87, 7, 89, 11};
   const vector<string> &personsRef = persons;
   display(persons);
   display(personsRef);
@@ -141,14 +144,15 @@ void passing_references() {
 }
 
 void display(const vector<string> &persons) {
-    for (const auto &person : persons)
-        cout << person << " ";
-    cout << endl;
+  for (const auto &person : persons)
+    cout << person << " ";
+  cout << endl;
 }
 
 void display(const vector<int> &scores) {
-    cout << "Displaying scores..." << endl;
-    for(const int score : scores) {
-        cout << score << endl;
-    }
+  cout << "Displaying scores..." << endl;
+  for (const auto &score : scores) {
+    cout << score << " ";
+  }
+  cout << endl;
 }
