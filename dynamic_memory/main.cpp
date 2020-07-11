@@ -6,15 +6,15 @@ using namespace std;
 void memory_allocation();
 void arrays_and_pointers();
 void pointer_arithmetic();
-static void swap(int *a, int *b);
+static void swap(int* a, int* b);
 void passing_pointers_2();
 void passing_pointers_3();
 void passing_references();
-void display(const vector<string> *persons);
-void displayScores(int sentinel, int *scores_ptr);
-void displayScores2(int sentinel, int *scores_ptr);
-void display(const vector<string> &persons);
-void display(const vector<int> &scores);
+void display(const vector<string>* persons);
+void displayScores(int sentinel, int* scores_ptr);
+void displayScores2(int sentinel, int* scores_ptr);
+void display(const vector<string>& persons);
+void display(const vector<int>& scores);
 
 int main() {
   memory_allocation();
@@ -28,7 +28,7 @@ int main() {
 
 void memory_allocation() {
   // declare an integer pointer and point it at null
-  int *int_ptr{nullptr};
+  int* int_ptr{nullptr};
 
   // Allocate/create a new integer on the heap and point int_ptr to it.
   int_ptr = new int;
@@ -42,12 +42,11 @@ void memory_allocation() {
   // Deallocate unnamed integer on the heap
   delete int_ptr;
 
-  int *set = new int[100];
+  int* set = new int[100];
   delete[] set;
 }
 
 void arrays_and_pointers() {
-
   double balance[5] = {1000.0, 2.0, 3.4, 17.0, -50.4};
 
   // the name of an array is the value of the address of the 1st element.
@@ -60,7 +59,7 @@ void arrays_and_pointers() {
   cout << (balance == &balance[0]) << endl;
 
   // balance pointer
-  double *balance_ptr{balance}; // same as double *balance_ptr{balance};
+  double* balance_ptr{balance};  // same as double *balance_ptr{balance};
 
   // subscript notation
   cout << balance_ptr[0] << endl;
@@ -87,12 +86,12 @@ void pointer_arithmetic() {
   int scores[]{10, 20, 90, 100, 7, 5, -1};
   cout << (scores == &scores[0]) << endl;
   int sentinel = -1;
-  int *scores_ptr{scores};
+  int* scores_ptr{scores};
   displayScores(sentinel, scores_ptr);
   displayScores2(sentinel, scores_ptr);
 }
 
-void displayScores(int sentinel, int *scores_ptr) {
+void displayScores(int sentinel, int* scores_ptr) {
   while (*scores_ptr != sentinel) {
     cout << *scores_ptr << " ";
     scores_ptr++;
@@ -100,7 +99,7 @@ void displayScores(int sentinel, int *scores_ptr) {
   cout << endl;
 }
 
-void displayScores2(int sentinel, int *scores_ptr) {
+void displayScores2(int sentinel, int* scores_ptr) {
   while (*scores_ptr != sentinel) {
     cout << *scores_ptr++ << " ";
   }
@@ -116,7 +115,7 @@ void passing_pointers_2() {
   cout << "b: " << b << endl;
 }
 
-static void swap(int *a, int *b) {
+static void swap(int* a, int* b) {
   int temp = *a;
   *a = *b;
   *b = temp;
@@ -127,8 +126,8 @@ void passing_pointers_3() {
   display(&persons);
 }
 
-void display(const vector<string> *persons) {
-  for (const auto &person : *persons) {
+void display(const vector<string>* persons) {
+  for (const auto& person : *persons) {
     cout << person << " ";
   }
   cout << endl;
@@ -137,21 +136,20 @@ void display(const vector<string> *persons) {
 void passing_references() {
   vector<string> persons{"Larry", "Susan", "Justin", "Zoe"};
   vector<int> scores{1, 5, 90, 87, 7, 89, 11};
-  const vector<string> &personsRef = persons;
+  const vector<string>& personsRef = persons;
   display(persons);
   display(personsRef);
   display(scores);
 }
 
-void display(const vector<string> &persons) {
-  for (const auto &person : persons)
-    cout << person << " ";
+void display(const vector<string>& persons) {
+  for (const auto& person : persons) cout << person << " ";
   cout << endl;
 }
 
-void display(const vector<int> &scores) {
+void display(const vector<int>& scores) {
   cout << "Displaying scores..." << endl;
-  for (const auto &score : scores) {
+  for (const auto& score : scores) {
     cout << score << " ";
   }
   cout << endl;

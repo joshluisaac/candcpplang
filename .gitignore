@@ -8,3 +8,4 @@ main.out
 cmake-build-debug
 .idea
 *.out
+output

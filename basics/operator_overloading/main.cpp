@@ -3,17 +3,17 @@
 using namespace std;
 
 class OperatorOverloading {
-private:
+ private:
   int count;
 
-public:
+ public:
   OperatorOverloading() : count(5) {}
   void operator++() { count = count + 1; }
 
   void print() { cout << "Count: " << count << endl; }
 };
 
-int main(int argc, const char *argv[]) {
+int main(int argc, const char* argv[]) {
   OperatorOverloading opl;
   ++opl;
   opl.print();
