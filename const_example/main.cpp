@@ -74,7 +74,7 @@ void logDetails(const Person& josh, Person* pJosh, Person& rJosh) {
 //Unlike Java. In C++ there's a difference between pass by reference and pass by value.
 //Parameter "josh" is a copy or a value of Person josh and not a reference to Person josh.
 //This means that updating or modifying parameter "josh" does not alter the Person josh.
-//Consider making parameter "josh" a const reference and not a copy of Person josh
+//protip: Consider making parameter "josh" a const reference and not a copy of Person josh
 void logDetails2(Person josh, Person* pJosh, Person& rJosh) {
   printf("%p\n",&josh);
 

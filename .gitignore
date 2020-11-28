@@ -10,3 +10,5 @@ cmake-build-debug
 *.out
 output
 CMakeLists.txt.user
+.cache
+build
