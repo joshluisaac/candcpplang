@@ -2,13 +2,13 @@
 #include <string>
 
 class BankAccount {
- public:
-  BankAccount();
-  ~BankAccount();
+   public:
+    BankAccount();
+    ~BankAccount();
 
- private:
-  int Balance;
+   private:
+    int Balance;
 
- public:
-  std::string GetHolderName() { return "NotImplemented"; }
+   public:
+    std::string GetHolderName() { return "NotImplemented"; }
 };
